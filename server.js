@@ -23,3 +23,5 @@ app.get("/tables", function(req, res) {
 app.get("/reservation", function(req, res) {
     res.sendFile(path.join(__dirname, "reservation.html"));
 });
+
+//Display data
