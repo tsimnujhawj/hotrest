@@ -5,9 +5,21 @@
 	<title>Reservation Page</title>
 
 	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">	
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+    // Gather Data from forms
+$("#submit-btn").on("click", (e)=>{
+    e.preventDefault();
+    let name = $("#reserve_name").val().trim();
+    let phone = $("#reserve_phone").val().trim();
+    let email = $("#reserve_email").val().trim();
+    let unqiueId = $("#reserve_uniqueID").val().trim();
+    console.log(name + " " + phone + " " + email + " " + unqiueId);
+});
+    </script>
 
 </head>
 <body>
@@ -58,7 +70,7 @@
 								<input type="text" class="form-control" id="reserve_uniqueID">
 							</div>
 
-							<button type="submit" class="btn btn-primary submit">Submit</button>
+							<button type="submit" class="btn btn-primary submit" id="submit-btn">Submit</button>
 						</form>
 
 					</div>
@@ -75,8 +87,6 @@
 	    </footer>
 
 	</div>
-
+	
 </body>
 </html>
-
-<sc
