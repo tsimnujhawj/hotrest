@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Tables Page</title>
 
 	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	 crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	 crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
 	<div class="container">
 
 		<div class="jumbotron">
-			<h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
+			<h1 class="text-center">
+				<span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
 			<hr>
 			<h2 class="text-center">Current Reservations and Waiting List</h2>
 			<br>
 
 			<div class="text-center">
-				<a href="/reservation"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
-				<a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+				<a href="/reservation">
+					<button type="button" class="btn btn-lg btn-danger">
+						<span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button>
+				</a>
+				<a href="/">
+					<button type="button" class="btn btn-lg btn-default">
+						<span class="glyphicon glyphicon-home"></span>
+					</button>
+				</a>
 			</div>
 		</div>
 
@@ -49,18 +61,43 @@
 		</div>
 
 
-	    <footer class="footer">
-	      <div class="container">
-	      	<p>Control Panel</p>
-	        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
-	      </div>
-	    </footer>
+		<footer class="footer">
+			<div class="container">
+				<p>Control Panel</p>
+				<p>
+					<a href="#" id="clear">Clear Table</a> |
+					<a href="/api/tables">API Table Link</a> |
+					<a href="/api/waitlist">API Wait List</a>
+				</p>
+			</div>
+		</footer>
 
 	</div>
 
-	
+
 </body>
 
+<script>
 
+	app.get("/api/reservation", function (req, res) {
+		return res.json(characters);
+	});
+
+	// Displays a single character, or returns false
+	app.get("/api/characters/:character", function (req, res) {
+		var chosen = req.params.character;
+
+		console.log(chosen);
+
+		for (var i = 0; i < characters.length; i++) {
+			if (chosen === characters[i].routeName) {
+				return res.json(characters[i]);
+			}
+		}
+
+		return res.json(false);
+	});
+
+</script>
 
 </html>
